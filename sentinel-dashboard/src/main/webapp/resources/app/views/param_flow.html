@@ -53,7 +53,10 @@
                                 流控模式
                             </td>
                             <td style="width: 10%;">
-                                单机阈值
+                                阈值
+                            </td>
+                            <td style="width: 8%;">
+                                是否集群
                             </td>
                             <td style="width: 10%;">
                                 例外项数目
@@ -69,10 +72,14 @@
                             <td style="word-wrap:break-word;word-break:break-all;">{{ruleEntity.rule.resource}}</td>
                             <td style="word-wrap:break-word;word-break:break-all;">{{ruleEntity.rule.paramIdx}}</td>
                             <td>
-                                {{ruleEntity.rule.blockGrade == 1 ? 'QPS' : '未知'}}
+                                {{ruleEntity.rule.grade == 1 ? 'QPS' : '未知'}}
                             </td>
                             <td style="word-wrap:break-word;word-break:break-all;">
                                 {{ruleEntity.rule.count}}
+                            </td>
+                            <td>
+                                <span ng-if="ruleEntity.rule.clusterMode">是</span>
+                                <span ng-if="!ruleEntity.rule.clusterMode">否</span>
                             </td>
                             <td>
                                 {{ruleEntity.rule.paramFlowItemList == undefined ? 0 : ruleEntity.rule.paramFlowItemList.length}}
